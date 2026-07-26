@@ -5,6 +5,9 @@
 [resource]
 script = ExtResource("1_xjdym")
 starts = {
+"datestart": &"0_5",
+"datetest": &"0_6",
+"datetut": &"0_4",
 "firstplay": &"0_3",
 "intro": &"0_1",
 "test": &"0_2"
@@ -25,6 +28,21 @@ nodes = {
 "offset": Vector2(-149.81812, 986.6672),
 "start_id": "firstplay"
 },
+&"0_4": {
+"link": &"1_16",
+"offset": Vector2(-292.23566, 1345.7792),
+"start_id": "datetut"
+},
+&"0_5": {
+"link": &"1_24",
+"offset": Vector2(20, 1860),
+"start_id": "datestart"
+},
+&"0_6": {
+"link": &"3_2",
+"offset": Vector2(2520, 1700),
+"start_id": "datetest"
+},
 &"1_1": {
 "dialogue": "[i]*sigh*[/i]",
 "offset": Vector2(60, 300),
@@ -35,7 +53,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 240.00003),
+"size": Vector2(300, 240),
 "speaker": 0
 },
 &"1_10": {
@@ -48,7 +66,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.00006, 240.00008),
+"size": Vector2(300, 240.00012),
 "speaker": 0
 },
 &"1_11": {
@@ -61,7 +79,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.00006, 399.99988),
+"size": Vector2(300.00037, 399.99988),
 "speaker": 0
 },
 &"1_12": {
@@ -74,7 +92,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.00006, 240),
+"size": Vector2(300.0005, 240),
 "speaker": 0
 },
 &"1_13": {
@@ -87,7 +105,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.0003, 260),
+"size": Vector2(300.00098, 260),
 "speaker": 1
 },
 &"1_14": {
@@ -100,7 +118,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 240),
+"size": Vector2(300, 240.00003),
 "speaker": 0
 },
 &"1_15": {
@@ -113,8 +131,60 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.00006, 240.00005),
+"size": Vector2(300, 240.00012),
 "speaker": 0
+},
+&"1_16": {
+"dialogue": "ALRIGHT LONERS AND LONETTES AND LONETHEMS!!!",
+"offset": Vector2(-21.32657, 1342.1428),
+"options": {
+0: {
+"condition": Array[Dictionary]([]),
+"link": &"1_17",
+"text": ""
+}
+},
+"size": Vector2(300, 300),
+"speaker": 2
+},
+&"1_17": {
+"dialogue": "It's time for a good ol'fashioned speed date!",
+"offset": Vector2(320, 1340),
+"options": {
+0: {
+"condition": Array[Dictionary]([]),
+"link": &"1_18",
+"text": ""
+}
+},
+"size": Vector2(300, 240),
+"speaker": 2
+},
+&"1_18": {
+"dialogue": "Each of you have written down some basic [color=green]likes[/color] and [color=red]dislikes[/color] on a sheet of paper.",
+"offset": Vector2(640, 1340),
+"options": {
+0: {
+"condition": Array[Dictionary]([]),
+"link": &"1_19",
+"text": ""
+}
+},
+"size": Vector2(380.00012, 320),
+"speaker": 2
+},
+&"1_19": {
+"dialogue": "Use them to strike up a conversation.",
+"offset": Vector2(1040, 1360),
+"options": {
+0: {
+"condition": Array[Dictionary]([]),
+"link": &"1_20",
+"text": ""
+}
+},
+"size": Vector2(300.00037, 240),
+"speaker": 2
 },
 &"1_2": {
 "dialogue": "Another peaceful day at home.",
@@ -126,8 +196,78 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 240.00003),
+"size": Vector2(300, 240),
 "speaker": 0
+},
+&"1_20": {
+"dialogue": "You will have [b]20 seconds[/b] with each person!",
+"offset": Vector2(1380, 1360),
+"options": {
+0: {
+"condition": Array[Dictionary]([]),
+"link": &"1_21",
+"text": ""
+}
+},
+"size": Vector2(300.00024, 240),
+"speaker": 2
+},
+&"1_21": {
+"dialogue": "[b]READY...[/b]",
+"offset": Vector2(1753.6578, 1410.2372),
+"options": {
+0: {
+"condition": Array[Dictionary]([]),
+"link": &"1_22",
+"text": ""
+}
+},
+"size": Vector2(300.00012, 240),
+"speaker": 2
+},
+&"1_22": {
+"dialogue": "[b]SET...[/b]",
+"offset": Vector2(2080, 1400),
+"options": {
+0: {
+"condition": Array[Dictionary]([]),
+"link": &"1_23",
+"text": ""
+}
+},
+"size": Vector2(300, 240),
+"speaker": 2
+},
+&"1_23": {
+"dialogue": "[b]GO![/b]",
+"offset": Vector2(2400, 1400),
+"options": {
+0: {
+"condition": Array[Dictionary]([]),
+"link": &"3_2",
+"text": ""
+}
+},
+"size": Vector2(300, 240),
+"speaker": 2
+},
+&"1_24": {
+"dialogue": "You know the drill.",
+"offset": Vector2(240, 1780),
+"options": {
+0: {
+"condition": Array[Dictionary]([]),
+"link": &"1_21",
+"text": "yup."
+},
+1: {
+"condition": Array[Dictionary]([]),
+"link": &"1_18",
+"text": "no i forgor."
+}
+},
+"size": Vector2(300, 271),
+"speaker": 2
 },
 &"1_3": {
 "dialogue": "Sure hope nothing [shake]weird[/shake] or [wave]wacky[/wave] happens.",
@@ -139,7 +279,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 359.99994),
+"size": Vector2(300.00024, 359.99994),
 "speaker": 0
 },
 &"1_4": {
@@ -152,7 +292,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.00024, 240.00015),
+"size": Vector2(300.00012, 240.00012),
 "speaker": 1
 },
 &"1_5": {
@@ -165,7 +305,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(319.99878, 300.00006),
+"size": Vector2(319.9989, 300.00006),
 "speaker": 1
 },
 &"1_6": {
@@ -191,7 +331,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(480, 419.99994),
+"size": Vector2(480.00037, 419.99988),
 "speaker": 0
 },
 &"1_8": {
@@ -204,7 +344,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.00006, 240.00008),
+"size": Vector2(300.00012, 240.00012),
 "speaker": 0
 },
 &"1_9": {
@@ -217,13 +357,18 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(340.00024, 300),
+"size": Vector2(340, 300),
 "speaker": 0
 },
 &"3_1": {
 "link": "END",
 "offset": Vector2(4258.487, 463.66937),
 "signalValue": "finito"
+},
+&"3_2": {
+"link": "END",
+"offset": Vector2(2835.6384, 1465.6187),
+"signalValue": "datego"
 }
 }
 characters = "res://dialogues/characters.tres"

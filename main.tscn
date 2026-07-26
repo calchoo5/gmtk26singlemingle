@@ -8,8 +8,12 @@
 [ext_resource type="Script" uid="uid://blmdt7v8bd0nl" path="res://addons/dialogue_nodes/objects/bbcodeGhost.gd" id="5_5vw27"]
 [ext_resource type="Resource" uid="uid://u030r7xq4p8a" path="res://dialogues/intro.tres" id="5_kek77"]
 [ext_resource type="Script" uid="uid://bsoctnc26xumr" path="res://addons/dialogue_nodes/objects/bbcodeMatrix.gd" id="6_kek77"]
+[ext_resource type="FontFile" uid="uid://cbtekksunv054" path="res://addons/Font Pack/Gc05002t.ttf" id="8_w48qg"]
 [ext_resource type="Texture2D" uid="uid://c1f3pi7uwddvc" path="res://assets/images/Bedroom_Day.png" id="9_4c57u"]
 [ext_resource type="FontFile" uid="uid://bhtf12vvs2yjq" path="res://addons/dialogue_nodes/themes/Poppins-BoldItalic.ttf" id="10_4c57u"]
+[ext_resource type="Texture2D" uid="uid://yvkct25h5bmn" path="res://assets/images/ppl/omisido-smile-3660166_1920.png" id="11_ycdy4"]
+[ext_resource type="FontFile" uid="uid://bld5u8m31y7kh" path="res://addons/Font Pack/PakenhamBl.ttf" id="12_w48qg"]
+[ext_resource type="Script" uid="uid://bi6g8iopecpdc" path="res://timer.gd" id="13_vivmo"]
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_4c57u"]
 script = ExtResource("4_272bh")
@@ -38,25 +42,6 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("9_4c57u")
 expand_mode = 1
-
-[node name="DialogueBox" type="Panel" parent="." unique_id=936188929]
-visible = false
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -321.5
-offset_top = -148.0
-offset_right = 321.5
-grow_horizontal = 2
-grow_vertical = 0
-theme = ExtResource("3_272bh")
-script = ExtResource("3_7mycd")
-data = ExtResource("5_kek77")
-custom_effects = Array[RichTextEffect]([SubResource("RichTextEffect_4c57u"), SubResource("RichTextEffect_efxa6"), SubResource("RichTextEffect_dg77c")])
-metadata/_custom_type_script = "uid://by8fmhpldj46a"
 
 [node name="starting" type="VBoxContainer" parent="." unique_id=102831135]
 layout_mode = 1
@@ -116,8 +101,112 @@ theme_override_fonts/font = ExtResource("10_4c57u")
 theme_override_font_sizes/font_size = 20
 text = "Quit"
 
-[connection signal="dialogue_signal" from="DialogueBox" to="." method="_on_dialogue_box_dialogue_signal"]
+[node name="dater" type="TextureRect" parent="." unique_id=1435500090]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -176.0
+offset_top = -700.0
+offset_right = 524.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+texture = ExtResource("11_ycdy4")
+expand_mode = 1
+
+[node name="timer" type="Label" parent="." unique_id=63116908]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("12_w48qg")
+theme_override_font_sizes/font_size = 50
+text = "00:00"
+horizontal_alignment = 1
+script = ExtResource("13_vivmo")
+
+[node name="paper" type="ColorRect" parent="." unique_id=732023918]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 80.0
+offset_top = -200.0
+offset_right = 380.0
+offset_bottom = 150.0
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="paper" unique_id=2045988456]
+layout_mode = 1
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 88.0
+offset_bottom = 60.0
+
+[node name="lik" type="Label" parent="paper/VBoxContainer" unique_id=1912575684]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("8_w48qg")
+theme_override_font_sizes/font_size = 30
+text = "Likes:"
+
+[node name="likes" type="RichTextLabel" parent="paper/VBoxContainer" unique_id=1125092392]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("8_w48qg")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "[list]
+*you
+*weiners
+*dog
+[/list]"
+fit_content = true
+
+[node name="dislik" type="Label" parent="paper/VBoxContainer" unique_id=531602477]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("8_w48qg")
+theme_override_font_sizes/font_size = 30
+text = "Dislikes:"
+
+[node name="dislikes" type="Label" parent="paper/VBoxContainer" unique_id=419393013]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("8_w48qg")
+theme_override_font_sizes/font_size = 30
+text = "not you
+hamborgar
+fridge"
+
+[node name="DialogueBox" type="Panel" parent="." unique_id=936188929]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -321.5
+offset_top = -148.0
+offset_right = 321.5
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("3_272bh")
+script = ExtResource("3_7mycd")
+data = ExtResource("5_kek77")
+custom_effects = Array[RichTextEffect]([SubResource("RichTextEffect_4c57u"), SubResource("RichTextEffect_efxa6"), SubResource("RichTextEffect_dg77c")])
+metadata/_custom_type_script = "uid://by8fmhpldj46a"
+
 [connection signal="pressed" from="starting/date" to="." method="_on_date_pressed"]
 [connection signal="pressed" from="starting/store" to="." method="_on_store_pressed"]
 [connection signal="pressed" from="setnquit/setbutton" to="." method="_on_setbutton_pressed"]
 [connection signal="pressed" from="setnquit/quitting" to="." method="_on_quitting_pressed"]
+[connection signal="dialogue_signal" from="DialogueBox" to="." method="_on_dialogue_box_dialogue_signal"]
