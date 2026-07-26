@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://c6yplr84qj8xy"]
+
+[ext_resource type="PackedScene" uid="uid://c0o1r0nlk1hxo" path="res://settings.tscn" id="1_ig7tw"]
+
+[node name="main" type="Control" unique_id=1631177701]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="settings" parent="." unique_id=781342177 instance=ExtResource("1_ig7tw")]
+layout_mode = 1
