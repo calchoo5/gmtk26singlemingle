@@ -1,0 +1,103 @@
+[gd_scene format=3 uid="uid://bhskwk7yifkx1"]
+
+[ext_resource type="Script" uid="uid://8152jop8t5dt" path="res://menu.gd" id="1_4hy44"]
+[ext_resource type="Texture2D" uid="uid://dyql8fdee8xtf" path="res://i_do_not_know_something_i_do_not_want.png" id="1_mae5d"]
+[ext_resource type="FontFile" uid="uid://bwrnm8umr3ows" path="res://addons/Font Pack/EducationalGothic.otf" id="2_4hy44"]
+[ext_resource type="PackedScene" uid="uid://c0o1r0nlk1hxo" path="res://settings.tscn" id="2_ytr4m"]
+[ext_resource type="FontFile" uid="uid://qpcno4x8o1nj" path="res://addons/Font Pack/Philosopher.ttf" id="3_ytr4m"]
+
+[node name="menu" type="Control" unique_id=1880500747]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4hy44")
+
+[node name="settings" parent="." unique_id=781342177 instance=ExtResource("2_ytr4m")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+
+[node name="background" type="TextureRect" parent="." unique_id=1311406227]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_mae5d")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1198367116]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -78.0
+offset_top = -24.0
+offset_right = 78.0
+offset_bottom = 137.00067
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="start" type="Button" parent="VBoxContainer" unique_id=108496699]
+layout_mode = 2
+theme_override_colors/font_focus_color = Color(0.9254902, 0.8039216, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.8862745, 0.54901963, 0, 1)
+theme_override_colors/font_hover_color = Color(0.9254902, 0.8039216, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.8862745, 0.54901963, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_4hy44")
+theme_override_font_sizes/font_size = 40
+text = "Start"
+flat = true
+
+[node name="settings" type="Button" parent="VBoxContainer" unique_id=1386002960]
+layout_mode = 2
+theme_override_colors/font_focus_color = Color(0.9254902, 0.8039216, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.8862745, 0.54901963, 0, 1)
+theme_override_colors/font_hover_color = Color(0.9254902, 0.8039216, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.8862745, 0.54901963, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_4hy44")
+theme_override_font_sizes/font_size = 40
+text = "Settings"
+flat = true
+
+[node name="quit" type="Button" parent="VBoxContainer" unique_id=580602546]
+layout_mode = 2
+theme_override_colors/font_focus_color = Color(0.9254902, 0.8039216, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.8862745, 0.54901963, 0, 1)
+theme_override_colors/font_hover_color = Color(0.9254902, 0.8039216, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.8862745, 0.54901963, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_4hy44")
+theme_override_font_sizes/font_size = 40
+text = "Quit"
+flat = true
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=161776720]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -254.0
+offset_right = 254.0
+offset_bottom = 200.0
+grow_horizontal = 2
+
+[node name="title" type="Label" parent="MarginContainer" unique_id=2039873153]
+layout_mode = 2
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("3_ytr4m")
+theme_override_font_sizes/font_size = 100
+text = "Single, Forced to Mingle"
+
+[connection signal="pressed" from="VBoxContainer/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="VBoxContainer/quit" to="." method="_on_quit_pressed"]

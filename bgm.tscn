@@ -1,0 +1,4 @@
+[gd_scene format=3 uid="uid://cq5absc0j6h36"]
+
+[node name="BGM" type="AudioStreamPlayer" unique_id=153516301]
+autoplay = true
