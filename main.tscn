@@ -1,6 +1,24 @@
 [gd_scene format=3 uid="uid://c6yplr84qj8xy"]
 
+[ext_resource type="Script" uid="uid://dnto46c4mj73t" path="res://main.gd" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://c0o1r0nlk1hxo" path="res://settings.tscn" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://by8fmhpldj46a" path="res://addons/dialogue_nodes/objects/DialogueBox.gd" id="3_7mycd"]
+[ext_resource type="Theme" uid="uid://c7sdrp3ltdq24" path="res://addons/dialogue_nodes/themes/pixelart.theme" id="3_272bh"]
+[ext_resource type="Script" uid="uid://m31i3axecagx" path="res://addons/dialogue_nodes/objects/bbcodeWait.gd" id="4_272bh"]
+[ext_resource type="Script" uid="uid://blmdt7v8bd0nl" path="res://addons/dialogue_nodes/objects/bbcodeGhost.gd" id="5_5vw27"]
+[ext_resource type="Resource" uid="uid://u030r7xq4p8a" path="res://dialogues/intro.tres" id="5_kek77"]
+[ext_resource type="Script" uid="uid://bsoctnc26xumr" path="res://addons/dialogue_nodes/objects/bbcodeMatrix.gd" id="6_kek77"]
+[ext_resource type="Texture2D" uid="uid://c1f3pi7uwddvc" path="res://assets/images/Bedroom_Day.png" id="9_4c57u"]
+[ext_resource type="FontFile" uid="uid://bhtf12vvs2yjq" path="res://addons/dialogue_nodes/themes/Poppins-BoldItalic.ttf" id="10_4c57u"]
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_4c57u"]
+script = ExtResource("4_272bh")
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_efxa6"]
+script = ExtResource("5_5vw27")
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_dg77c"]
+script = ExtResource("6_kek77")
 
 [node name="main" type="Control" unique_id=1631177701]
 layout_mode = 3
@@ -9,6 +27,97 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_0xm2m")
+
+[node name="BG" type="TextureRect" parent="." unique_id=2005771765]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_4c57u")
+expand_mode = 1
+
+[node name="DialogueBox" type="Panel" parent="." unique_id=936188929]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -321.5
+offset_top = -148.0
+offset_right = 321.5
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("3_272bh")
+script = ExtResource("3_7mycd")
+data = ExtResource("5_kek77")
+custom_effects = Array[RichTextEffect]([SubResource("RichTextEffect_4c57u"), SubResource("RichTextEffect_efxa6"), SubResource("RichTextEffect_dg77c")])
+metadata/_custom_type_script = "uid://by8fmhpldj46a"
+
+[node name="starting" type="VBoxContainer" parent="." unique_id=102831135]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -47.0
+offset_top = -38.0
+offset_right = 47.0
+offset_bottom = 38.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="date" type="Button" parent="starting" unique_id=2144725568]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("10_4c57u")
+theme_override_font_sizes/font_size = 40
+text = " Go \"Date\" "
+
+[node name="store" type="Button" parent="starting" unique_id=2056423999]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("10_4c57u")
+theme_override_font_sizes/font_size = 40
+text = "Store"
 
 [node name="settings" parent="." unique_id=781342177 instance=ExtResource("1_ig7tw")]
+visible = false
 layout_mode = 1
+
+[node name="setnquit" type="VBoxContainer" parent="." unique_id=97481257]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 114.0
+offset_bottom = 60.0
+
+[node name="setbutton" type="Button" parent="setnquit" unique_id=203718201]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("10_4c57u")
+theme_override_font_sizes/font_size = 20
+text = "Settings"
+
+[node name="quitting" type="Button" parent="setnquit" unique_id=126364064]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("10_4c57u")
+theme_override_font_sizes/font_size = 20
+text = "Quit"
+
+[connection signal="dialogue_signal" from="DialogueBox" to="." method="_on_dialogue_box_dialogue_signal"]
+[connection signal="pressed" from="starting/date" to="." method="_on_date_pressed"]
+[connection signal="pressed" from="starting/store" to="." method="_on_store_pressed"]
+[connection signal="pressed" from="setnquit/setbutton" to="." method="_on_setbutton_pressed"]
+[connection signal="pressed" from="setnquit/quitting" to="." method="_on_quitting_pressed"]

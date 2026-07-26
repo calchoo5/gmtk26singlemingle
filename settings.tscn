@@ -4,6 +4,7 @@
 [ext_resource type="FontFile" uid="uid://b7auq3nfwli4x" path="res://addons/Font Pack/Eitai.otf" id="2_3ykye"]
 
 [node name="settings" type="Control" unique_id=781342177]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

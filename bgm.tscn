@@ -3,6 +3,7 @@
 [ext_resource type="AudioStream" uid="uid://pcl4alrhgewv" path="res://assets/audio/andriih-bossa-nova-jazz-music-572268.mp3" id="1_l7bcd"]
 
 [node name="BGM" type="AudioStreamPlayer" unique_id=153516301]
+process_mode = 3
 stream = ExtResource("1_l7bcd")
 autoplay = true
 bus = &"BGM"

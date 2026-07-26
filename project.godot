@@ -15,9 +15,29 @@ run/main_scene="res://menu.tscn"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="uid://da0t7dtsf7qio"
+
 [autoload]
 
 Bgm="*uid://cq5absc0j6h36"
+Global="*uid://lenp6xyboccl"
+
+[display]
+
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/dialogue_nodes/plugin.cfg")
+
+[parley]
+
+stores/character_store_path="uid://b7stid7pcyvyq"
+stores/action_store_path="uid://sertextswim8"
+stores/fact_store_path="uid://mcf618t5y2ve"
 
 [physics]
 

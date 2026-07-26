@@ -20,7 +20,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if self.visible:
+		get_tree().paused = true
 
 
 func _on_master_value_changed(value: float) -> void:
@@ -40,3 +41,4 @@ func _on_fullscreen_toggled(toggled_on: bool) -> void:
 
 func _on_exit_pressed() -> void:
 	self.visible = false
+	get_tree().paused = false

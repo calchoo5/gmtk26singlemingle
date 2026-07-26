@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="CharacterList" format=3 uid="uid://b06jacr5g83d8"]
+
+[ext_resource type="Script" uid="uid://42coc6buijm5" path="res://addons/dialogue_nodes/objects/Character.gd" id="1_ubha3"]
+[ext_resource type="Script" uid="uid://dr0x7hw4xr8r7" path="res://addons/dialogue_nodes/objects/CharacterList.gd" id="2_gjdqk"]
+
+[sub_resource type="Resource" id="Resource_ubha3"]
+script = ExtResource("1_ubha3")
+name = "Oak"
+color = Color(0.6627451, 0.40784314, 1, 1)
+metadata/_custom_type_script = "uid://42coc6buijm5"
+
+[sub_resource type="Resource" id="Resource_gjdqk"]
+script = ExtResource("1_ubha3")
+name = "Mom"
+color = Color(1, 0.6745098, 1, 1)
+metadata/_custom_type_script = "uid://42coc6buijm5"
+
+[resource]
+script = ExtResource("2_gjdqk")
+characters = Array[ExtResource("1_ubha3")]([SubResource("Resource_ubha3"), SubResource("Resource_gjdqk")])
+metadata/_custom_type_script = "uid://dr0x7hw4xr8r7"
