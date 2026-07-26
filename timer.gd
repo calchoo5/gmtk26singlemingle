@@ -1,6 +1,6 @@
 extends Label
 
-var time_left: float = 12.0 # Start time in seconds
+var time_left: float = 60.0 # Start time in seconds
 var is_running: bool = true
 var timerstart = false
 

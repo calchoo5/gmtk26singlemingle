@@ -83,13 +83,22 @@ var enemies = 0
 var allowance = 0
 var prevdate
 var smart = 1
+var cashieronce = true
+
+var prebiscount = 0
+var texted = true
+
+var juststarted = true
 
 
 func _ready() -> void:
 	dgb.characters.clear()
 	for character in chars.characters:
 		dgb.characters.append(character)
-	dgb.start('intro')
+	if juststarted:
+		dgb.start('intro')
+	else:
+		$starting.visible = true
 	$BG.texture = room
 	%mone.text = "$" + str(allowance)
 
@@ -105,10 +114,9 @@ func _process(delta: float) -> void:
 		%frenct.text = str(friends)
 		%date2.text = str(dates)
 		%hate2.text = str(enemies)
-		allowance = friends*smart + (dates*2) - enemies
+		allowance = friends*smart + (dates*1.5) - (enemies*2)
 		%allow2.text = "$" +str(allowance)
 		%mone.text = "$" + str(allowance)
-		#dgb.start("end")
 	%mone.text = "$" + str(allowance)
 
 
@@ -117,9 +125,17 @@ func _on_setbutton_pressed() -> void:
 
 
 func _on_date_pressed() -> void:
+	Global.die = false
+	once = true
+	friends = 0
+	dates = 0
+	enemies = 0
 	$BG.texture = cafe
 	$starting.visible = false
 	Bgm.gotime()
+	$timer.time_left = 10
+	$timer.timerstart = true
+	$timer.is_running = true
 	if Global.firstplay:
 		dgb.start('datetest')
 	else:
@@ -128,15 +144,19 @@ func _on_date_pressed() -> void:
 
 
 func _on_store_pressed() -> void:
-	#if Global.firstplay:
-		#dgb.start("firstplay")
-		#return
+	if Global.firstplay:
+		dgb.start("firstplay")
+		return
 	$BG.texture = store
 	$starting.visible = false
 	Bgm.shop()
-	dgb.start("store")
 	$cashier.visible = true
 	$shop.visible = true
+	if cashieronce:
+		dgb.start("store")
+		cashieronce = false
+	else:
+		$gohome.visible = true
 	
 
 
@@ -151,7 +171,18 @@ func _on_dialogue_box_dialogue_signal(value: String) -> void:
 	if value == "cashierend":
 		$gohome.visible = true
 	if value == "smart":
-		smart = 1.5
+		smart = 1.25
+	if value == "dead":
+		$died.visible = true
+		$died/Label.text = "Died of Dr. Prebis Overdose."
+	if value == "theend":
+		$winner.visible = true
+	if value == "datedead":
+		$died.visible = true
+		$died/Label.text = "Died of Lying Too Damn Much."
+	if value == "enemydead":
+		$died.visible = true
+		$died/Label.text = "Died of Getting Butt Kicked."
 
 func nextdate() -> void:
 	main_array.clear()
@@ -251,11 +282,17 @@ func randobutton():
 	
 
 func _on_button_pressed() -> void:
-	if Global.firstplay:
+	if enemies > 7:
+		dgb.start("enemied")
+	elif dates > 7:
+		dgb.start("dated")
+	elif Global.firstplay:
 		dgb.start("end")
 		Global.firstplay = false
+		$timer.timerstart = false
 	else:
 		dgb.start("ended")
+		$timer.timerstart = false
 	$result.visible = false
 	$timer.visible = false
 
@@ -272,15 +309,22 @@ func _on_gohome_pressed() -> void:
 func _on_soda_pressed() -> void:
 	if allowance >=5:
 		allowance -= 5
-		dgb.start("prebis")
+		prebiscount += 1
+		if prebiscount < 20:
+			dgb.start("prebis")
+		else:
+			dgb.start("overdose")
 	else:
 		dgb.start("broke")
 
 
 func _on_textbook_pressed() -> void:
-	if allowance >=20:
+	if (allowance >= 20) && texted:
 		allowance -= 20
 		dgb.start("textbook")
+		texted = false
+	elif !texted:
+		dgb.start("gone")
 	else:
 		dgb.start("broke")
 

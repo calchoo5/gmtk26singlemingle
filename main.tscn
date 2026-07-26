@@ -16,6 +16,8 @@
 [ext_resource type="FontFile" uid="uid://bld5u8m31y7kh" path="res://addons/Font Pack/PakenhamBl.ttf" id="12_w48qg"]
 [ext_resource type="Script" uid="uid://bi6g8iopecpdc" path="res://timer.gd" id="13_vivmo"]
 [ext_resource type="FontFile" uid="uid://b7auq3nfwli4x" path="res://addons/Font Pack/Eitai.otf" id="16_yaehf"]
+[ext_resource type="FontFile" uid="uid://b8hbgd58okvaf" path="res://addons/Font Pack/Gascogne.ttf" id="17_074og"]
+[ext_resource type="Texture2D" uid="uid://cxf550i88udc0" path="res://assets/images/aroaceman.png" id="18_cegan"]
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_4c57u"]
 script = ExtResource("4_272bh")
@@ -46,6 +48,7 @@ texture = ExtResource("2_2cqfq")
 expand_mode = 1
 
 [node name="starting" type="VBoxContainer" parent="." unique_id=102831135]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -465,6 +468,64 @@ theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("10_4c57u")
 theme_override_font_sizes/font_size = 30
 text = "Go Home"
+
+[node name="died" type="ColorRect" parent="." unique_id=655599838]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="died" unique_id=843555404]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("17_074og")
+theme_override_font_sizes/font_size = 50
+text = "Died of Dr. Prebis Overdose."
+
+[node name="winner" type="TextureRect" parent="." unique_id=557817215]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("18_cegan")
+
+[node name="Label" type="Label" parent="winner" unique_id=55126399]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -332.0
+offset_top = -31.5
+offset_right = 332.0
+offset_bottom = 31.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.9254902, 0.8039216, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("17_074og")
+theme_override_font_sizes/font_size = 50
+text = "You are free from dating hell."
 
 [connection signal="pressed" from="starting/date" to="." method="_on_date_pressed"]
 [connection signal="pressed" from="starting/store" to="." method="_on_store_pressed"]
