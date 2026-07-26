@@ -8,8 +8,10 @@ starts = {
 "datestart": &"0_5",
 "datetest": &"0_6",
 "datetut": &"0_4",
+"end": &"0_8",
 "firstplay": &"0_3",
 "intro": &"0_1",
+"irish": &"0_7",
 "test": &"0_2"
 }
 nodes = {
@@ -20,28 +22,38 @@ nodes = {
 },
 &"0_2": {
 "link": &"1_7",
-"offset": Vector2(1436.8179, 909.165),
+"offset": Vector2(420, 700),
 "start_id": "test"
 },
 &"0_3": {
 "link": &"1_14",
-"offset": Vector2(-149.81812, 986.6672),
+"offset": Vector2(-180, 660),
 "start_id": "firstplay"
 },
 &"0_4": {
 "link": &"1_16",
-"offset": Vector2(-292.23566, 1345.7792),
+"offset": Vector2(-240, 920),
 "start_id": "datetut"
 },
 &"0_5": {
 "link": &"1_24",
-"offset": Vector2(20, 1860),
+"offset": Vector2(80, 1440),
 "start_id": "datestart"
 },
 &"0_6": {
 "link": &"3_2",
-"offset": Vector2(2520, 1700),
+"offset": Vector2(2380, 1360),
 "start_id": "datetest"
+},
+&"0_7": {
+"link": &"1_25",
+"offset": Vector2(-4420, -4320),
+"start_id": "irish"
+},
+&"0_8": {
+"link": &"1_35",
+"offset": Vector2(-273.8905, 2103.5015),
+"start_id": "end"
 },
 &"1_1": {
 "dialogue": "[i]*sigh*[/i]",
@@ -53,7 +65,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 240),
+"size": Vector2(300.0005, 240.0002),
 "speaker": 0
 },
 &"1_10": {
@@ -66,7 +78,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 240.00012),
+"size": Vector2(300.00098, 240),
 "speaker": 0
 },
 &"1_11": {
@@ -79,7 +91,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.00037, 399.99988),
+"size": Vector2(300.00073, 399.99808),
 "speaker": 0
 },
 &"1_12": {
@@ -92,7 +104,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.0005, 240),
+"size": Vector2(300, 240.00143),
 "speaker": 0
 },
 &"1_13": {
@@ -105,12 +117,12 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.00098, 260),
+"size": Vector2(300.00244, 259.99976),
 "speaker": 1
 },
 &"1_14": {
 "dialogue": "I can't go to the store, my mom's waiting.",
-"offset": Vector2(80, 940),
+"offset": Vector2(60, 620),
 "options": {
 0: {
 "condition": Array[Dictionary]([]),
@@ -118,7 +130,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 240.00003),
+"size": Vector2(300.0005, 240.00003),
 "speaker": 0
 },
 &"1_15": {
@@ -131,12 +143,12 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 240.00012),
+"size": Vector2(300, 240),
 "speaker": 0
 },
 &"1_16": {
 "dialogue": "ALRIGHT LONERS AND LONETTES AND LONETHEMS!!!",
-"offset": Vector2(-21.32657, 1342.1428),
+"offset": Vector2(40, 920),
 "options": {
 0: {
 "condition": Array[Dictionary]([]),
@@ -144,12 +156,12 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 300),
+"size": Vector2(300, 299.99988),
 "speaker": 2
 },
 &"1_17": {
 "dialogue": "It's time for a good ol'fashioned speed date!",
-"offset": Vector2(320, 1340),
+"offset": Vector2(380, 920),
 "options": {
 0: {
 "condition": Array[Dictionary]([]),
@@ -157,12 +169,12 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 240),
+"size": Vector2(300.0005, 240.00085),
 "speaker": 2
 },
 &"1_18": {
 "dialogue": "Each of you have written down some basic [color=green]likes[/color] and [color=red]dislikes[/color] on a sheet of paper.",
-"offset": Vector2(640, 1340),
+"offset": Vector2(700, 920),
 "options": {
 0: {
 "condition": Array[Dictionary]([]),
@@ -170,12 +182,12 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(380.00012, 320),
+"size": Vector2(380.00024, 319.99994),
 "speaker": 2
 },
 &"1_19": {
 "dialogue": "Use them to strike up a conversation.",
-"offset": Vector2(1040, 1360),
+"offset": Vector2(1100, 940),
 "options": {
 0: {
 "condition": Array[Dictionary]([]),
@@ -183,7 +195,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.00037, 240),
+"size": Vector2(300, 240),
 "speaker": 2
 },
 &"1_2": {
@@ -196,16 +208,16 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 240),
+"size": Vector2(300.00037, 240.0002),
 "speaker": 0
 },
 &"1_20": {
-"dialogue": "You will have [b]20 seconds[/b] with each person!",
-"offset": Vector2(1380, 1360),
+"dialogue": "You will have [b]2 minutes[/b] to meet as many people as possible!",
+"offset": Vector2(1420, 760),
 "options": {
 0: {
 "condition": Array[Dictionary]([]),
-"link": &"1_21",
+"link": &"1_33",
 "text": ""
 }
 },
@@ -214,7 +226,7 @@ nodes = {
 },
 &"1_21": {
 "dialogue": "[b]READY...[/b]",
-"offset": Vector2(1753.6578, 1410.2372),
+"offset": Vector2(1820, 1000),
 "options": {
 0: {
 "condition": Array[Dictionary]([]),
@@ -222,12 +234,12 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.00012, 240),
+"size": Vector2(300.00146, 240),
 "speaker": 2
 },
 &"1_22": {
 "dialogue": "[b]SET...[/b]",
-"offset": Vector2(2080, 1400),
+"offset": Vector2(2140, 980),
 "options": {
 0: {
 "condition": Array[Dictionary]([]),
@@ -240,7 +252,7 @@ nodes = {
 },
 &"1_23": {
 "dialogue": "[b]GO![/b]",
-"offset": Vector2(2400, 1400),
+"offset": Vector2(2460, 980),
 "options": {
 0: {
 "condition": Array[Dictionary]([]),
@@ -248,12 +260,12 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300, 240),
+"size": Vector2(300.00098, 240.00049),
 "speaker": 2
 },
 &"1_24": {
 "dialogue": "You know the drill.",
-"offset": Vector2(240, 1780),
+"offset": Vector2(300, 1360),
 "options": {
 0: {
 "condition": Array[Dictionary]([]),
@@ -266,8 +278,93 @@ nodes = {
 "text": "no i forgor."
 }
 },
-"size": Vector2(300, 271),
+"size": Vector2(300.00073, 271.00073),
 "speaker": 2
+},
+&"1_25": {
+"dialogue": "So uh...do you like...",
+"offset": Vector2(-4180, -4360),
+"options": {
+0: {
+"condition": Array[Dictionary]([]),
+"link": &"1_27",
+"text": "england?"
+},
+1: {
+"condition": Array[Dictionary]([]),
+"link": &"1_26",
+"text": "alcohol?"
+},
+2: {
+"condition": Array[Dictionary]([]),
+"link": &"1_28",
+"text": "pens?"
+}
+},
+"size": Vector2(300, 304),
+"speaker": 0
+},
+&"1_26": {
+"dialogue": "RIGHT ON!",
+"offset": Vector2(-3780, -4160),
+"options": {
+0: {
+"condition": Array[Dictionary]([]),
+"link": &"4_1",
+"text": ""
+}
+},
+"size": Vector2(300, 240),
+"speaker": "Irishman"
+},
+&"1_27": {
+"dialogue": "ABSOLUTELY NOT!",
+"offset": Vector2(-3778.5437, -4457.6304),
+"options": {
+0: {
+"condition": Array[Dictionary]([]),
+"link": &"1_29",
+"text": ""
+}
+},
+"size": Vector2(300, 240),
+"speaker": "Irishman"
+},
+&"1_28": {
+"dialogue": "eh not really.",
+"offset": Vector2(-3780, -3900),
+"options": {
+0: {
+"condition": Array[Dictionary]([]),
+"link": &"1_29",
+"text": ""
+}
+},
+"size": Vector2(300, 240),
+"speaker": "Irishman"
+},
+&"1_29": {
+"dialogue": "Don't you just hate...",
+"offset": Vector2(-3120, -4140),
+"options": {
+0: {
+"condition": Array[Dictionary]([]),
+"link": &"1_30",
+"text": "razors?"
+},
+1: {
+"condition": Array[Dictionary]([]),
+"link": &"1_31",
+"text": "rain?"
+},
+2: {
+"condition": Array[Dictionary]([]),
+"link": &"1_32",
+"text": "woodworking?"
+}
+},
+"size": Vector2(300, 304),
+"speaker": 0
 },
 &"1_3": {
 "dialogue": "Sure hope nothing [shake]weird[/shake] or [wave]wacky[/wave] happens.",
@@ -279,7 +376,137 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.00024, 359.99994),
+"size": Vector2(300.00085, 360.00024),
+"speaker": 0
+},
+&"1_30": {
+"dialogue": "They keep me beard trimmed, why would I hate them?",
+"offset": Vector2(-2740, -4500),
+"options": {
+0: {
+"condition": Array[Dictionary]([]),
+"link": &"3_3",
+"text": ""
+}
+},
+"size": Vector2(300, 240),
+"speaker": "Irishman"
+},
+&"1_31": {
+"dialogue": "Das right, get's all me wood wet.",
+"offset": Vector2(-2720, -4240),
+"options": {
+0: {
+"condition": Array[Dictionary]([]),
+"link": &"4_2",
+"text": ""
+}
+},
+"size": Vector2(300, 240),
+"speaker": "Irishman"
+},
+&"1_32": {
+"dialogue": "I do that for a living, you mongrel.",
+"offset": Vector2(-2720, -3960),
+"options": {
+0: {
+"condition": Array[Dictionary]([]),
+"link": &"3_3",
+"text": ""
+}
+},
+"size": Vector2(300, 240),
+"speaker": "Irishman"
+},
+&"1_33": {
+"dialogue": "That means I only have time to talk about [b]2 topics[/b] with every person I meet...",
+"offset": Vector2(1760, 700),
+"options": {
+0: {
+"condition": Array[Dictionary]([]),
+"link": &"1_34",
+"text": ""
+}
+},
+"size": Vector2(300.00012, 340),
+"speaker": 0
+},
+&"1_34": {
+"dialogue": "As long as I get only 1 topic right, they'll at least be my friend and I won't have to date them!",
+"offset": Vector2(2120, 680),
+"options": {
+0: {
+"condition": Array[Dictionary]([]),
+"link": &"1_21",
+"text": ""
+}
+},
+"size": Vector2(300.00012, 240.00006),
+"speaker": 0
+},
+&"1_35": {
+"dialogue": "TIMESSSSS UPPPPP!!!!!!",
+"offset": Vector2(-40, 2000),
+"options": {
+0: {
+"condition": Array[Dictionary]([]),
+"link": &"1_36",
+"text": ""
+}
+},
+"size": Vector2(300, 240),
+"speaker": 2
+},
+&"1_36": {
+"dialogue": "oh thank goodness it's over.",
+"offset": Vector2(340, 1980),
+"options": {
+0: {
+"condition": Array[Dictionary]([]),
+"link": &"1_37",
+"text": ""
+}
+},
+"size": Vector2(300, 240),
+"speaker": 0
+},
+&"1_37": {
+"dialogue": "GREAT JOB OUT THERE Y'ALL!",
+"offset": Vector2(680, 1940),
+"options": {
+0: {
+"condition": Array[Dictionary]([]),
+"link": &"1_38",
+"text": ""
+}
+},
+"size": Vector2(300, 240),
+"speaker": 2
+},
+&"1_38": {
+"dialogue": "I'LL BE SEEING YOU ALL AGAIN TOMORROW!",
+"offset": Vector2(1049.9268, 1974.2751),
+"options": {
+0: {
+"condition": Array[Dictionary]([]),
+"link": &"1_39",
+"text": ""
+}
+},
+"size": Vector2(300, 240),
+"speaker": 2
+},
+&"1_39": {
+"dialogue": "TOMORROW??",
+"offset": Vector2(1415.0659, 1999.82),
+"options": {
+0: {
+"condition": Array[Dictionary]([]),
+"link": &"1_40",
+"text": ""
+}
+},
+"size": Vector2(300.00024, 240),
 "speaker": 0
 },
 &"1_4": {
@@ -292,7 +519,111 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.00012, 240.00012),
+"size": Vector2(300, 240.0002),
+"speaker": 1
+},
+&"1_40": {
+"dialogue": "That's right! Tomorrow!",
+"offset": Vector2(1781.7078, 1962.2542),
+"options": {
+0: {
+"condition": Array[Dictionary]([]),
+"link": &"1_41",
+"text": ""
+}
+},
+"size": Vector2(300, 240),
+"speaker": 2
+},
+&"1_41": {
+"dialogue": "Didjya really think 2 minutes was enough to get people dating?",
+"offset": Vector2(2133.3232, 2007.333),
+"options": {
+0: {
+"condition": Array[Dictionary]([]),
+"link": &"1_42",
+"text": ""
+}
+},
+"size": Vector2(300, 240),
+"speaker": 2
+},
+&"1_42": {
+"dialogue": "NO WAY JOSE!",
+"offset": Vector2(2486.4414, 2017.8514),
+"options": {
+0: {
+"condition": Array[Dictionary]([]),
+"link": &"1_43",
+"text": ""
+}
+},
+"size": Vector2(300.00024, 240),
+"speaker": 2
+},
+&"1_43": {
+"dialogue": "We'll be back in here tomorrow, same time to run it back.",
+"offset": Vector2(2820, 2020),
+"options": {
+0: {
+"condition": Array[Dictionary]([]),
+"link": &"1_44",
+"text": ""
+}
+},
+"size": Vector2(300, 240),
+"speaker": 2
+},
+&"1_44": {
+"dialogue": "NOW DISPERSE, ALL OF Y'ALL",
+"offset": Vector2(3160, 2020),
+"options": {
+0: {
+"condition": Array[Dictionary]([]),
+"link": &"1_45",
+"text": ""
+}
+},
+"size": Vector2(300, 240),
+"speaker": 2
+},
+&"1_45": {
+"dialogue": "I am so cooked...",
+"offset": Vector2(3500, 2000),
+"options": {
+0: {
+"condition": Array[Dictionary]([]),
+"link": &"1_46",
+"text": ""
+}
+},
+"size": Vector2(300, 240),
+"speaker": 0
+},
+&"1_46": {
+"dialogue": "Maybe there'll be something in the store that can help me here...",
+"offset": Vector2(3820, 1980),
+"options": {
+0: {
+"condition": Array[Dictionary]([]),
+"link": &"3_4",
+"text": ""
+}
+},
+"size": Vector2(300, 280),
+"speaker": 0
+},
+&"1_47": {
+"dialogue": "I'll even pay you some allowance for every person you get to know!!!!",
+"offset": Vector2(2040, 80),
+"options": {
+0: {
+"condition": Array[Dictionary]([]),
+"link": &"1_8",
+"text": ""
+}
+},
+"size": Vector2(300, 240),
 "speaker": 1
 },
 &"1_5": {
@@ -305,7 +636,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(319.9989, 300.00006),
+"size": Vector2(319.9983, 299.99927),
 "speaker": 1
 },
 &"1_6": {
@@ -314,16 +645,16 @@ nodes = {
 "options": {
 0: {
 "condition": Array[Dictionary]([]),
-"link": &"1_8",
+"link": &"1_47",
 "text": ""
 }
 },
-"size": Vector2(300, 339.99994),
+"size": Vector2(300.00073, 339.99927),
 "speaker": 1
 },
 &"1_7": {
 "dialogue": "[color=red][b]DID YOU HEAR ME SWEETIE??????[/b][/color]",
-"offset": Vector2(1700, 860),
+"offset": Vector2(680, 660),
 "options": {
 0: {
 "condition": Array[Dictionary]([]),
@@ -331,12 +662,12 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(480.00037, 419.99988),
+"size": Vector2(300.00024, 240.0008),
 "speaker": 0
 },
 &"1_8": {
 "dialogue": "[wait speed=2].....[/wait][wait time=3]oh boy.[/wait]",
-"offset": Vector2(2120, 340),
+"offset": Vector2(2140, 340),
 "options": {
 0: {
 "condition": Array[Dictionary]([]),
@@ -344,7 +675,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(300.00012, 240.00012),
+"size": Vector2(300.0011, 240),
 "speaker": 0
 },
 &"1_9": {
@@ -357,7 +688,7 @@ nodes = {
 "text": ""
 }
 },
-"size": Vector2(340, 300),
+"size": Vector2(340.0005, 300.00125),
 "speaker": 0
 },
 &"3_1": {
@@ -367,8 +698,38 @@ nodes = {
 },
 &"3_2": {
 "link": "END",
-"offset": Vector2(2835.6384, 1465.6187),
+"offset": Vector2(2900, 1040),
 "signalValue": "datego"
+},
+&"3_3": {
+"link": "END",
+"offset": Vector2(-1920, -4020),
+"signalValue": "dateend"
+},
+&"3_4": {
+"link": "END",
+"offset": Vector2(4215.832, 2037.932),
+"signalValue": "finalend"
+},
+&"4_1": {
+"link": &"1_29",
+"offset": Vector2(-3460, -4060),
+"type": 1,
+"value": "1",
+"variable": "correct"
+},
+&"4_2": {
+"link": &"3_3",
+"offset": Vector2(-2400, -4020),
+"type": 1,
+"value": "1",
+"variable": "correct"
+}
+}
+variables = {
+"correct": {
+"type": 2,
+"value": 0
 }
 }
 characters = "res://dialogues/characters.tres"

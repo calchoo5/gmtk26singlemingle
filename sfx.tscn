@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://cffwwnjf2b64i"]
+
+[ext_resource type="Script" uid="uid://cwtajra6w0wmn" path="res://sfx.gd" id="1_hlobe"]
+
+[node name="sfx" type="AudioStreamPlayer" unique_id=1981346709]
+max_polyphony = 10
+bus = &"SFX"
+script = ExtResource("1_hlobe")

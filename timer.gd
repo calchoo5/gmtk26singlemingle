@@ -1,17 +1,21 @@
 extends Label
 
-var time_left: float = 20.0 # Start time in seconds
+var time_left: float = 2.0 # Start time in seconds
 var is_running: bool = true
+var timerstart = false
 
 func _process(delta: float) -> void:
-	if is_running and time_left > 0.0:
-		time_left -= delta
-		if time_left <= 0.0:
-			time_left = 0.0
-			is_running = false
-			text = "00:00"
+	if timerstart:
+		if is_running and time_left > 0.0:
+			time_left -= delta
+			if time_left <= 0.0:
+				time_left = 0.0
+				is_running = false
+				text = "00:00"
+			else:
+				update_display()
 		else:
-			update_display()
+			Global.die = true
 
 func update_display() -> void:
 	var total_seconds: int = int(time_left)

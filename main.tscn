@@ -74,10 +74,6 @@ theme_override_fonts/font = ExtResource("10_4c57u")
 theme_override_font_sizes/font_size = 40
 text = "Store"
 
-[node name="settings" parent="." unique_id=781342177 instance=ExtResource("1_ig7tw")]
-visible = false
-layout_mode = 1
-
 [node name="setnquit" type="VBoxContainer" parent="." unique_id=97481257]
 layout_mode = 0
 offset_left = 20.0
@@ -102,6 +98,7 @@ theme_override_font_sizes/font_size = 20
 text = "Quit"
 
 [node name="dater" type="TextureRect" parent="." unique_id=1435500090]
+visible = false
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -118,6 +115,7 @@ texture = ExtResource("11_ycdy4")
 expand_mode = 1
 
 [node name="timer" type="Label" parent="." unique_id=63116908]
+visible = false
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -138,18 +136,18 @@ layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 80.0
+offset_left = 100.0
 offset_top = -200.0
-offset_right = 380.0
+offset_right = 375.0
 offset_bottom = 150.0
 grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="paper" unique_id=2045988456]
 layout_mode = 1
 offset_left = 20.0
-offset_top = 20.0
-offset_right = 88.0
-offset_bottom = 60.0
+offset_top = 15.0
+offset_right = 276.0
+offset_bottom = 403.0
 
 [node name="lik" type="Label" parent="paper/VBoxContainer" unique_id=1912575684]
 layout_mode = 2
@@ -158,18 +156,15 @@ theme_override_fonts/font = ExtResource("8_w48qg")
 theme_override_font_sizes/font_size = 30
 text = "Likes:"
 
-[node name="likes" type="RichTextLabel" parent="paper/VBoxContainer" unique_id=1125092392]
+[node name="likes" type="Label" parent="paper/VBoxContainer" unique_id=1953157574]
+unique_name_in_owner = true
 layout_mode = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("8_w48qg")
-theme_override_font_sizes/normal_font_size = 30
-bbcode_enabled = true
-text = "[list]
-*you
-*weiners
-*dog
-[/list]"
-fit_content = true
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("8_w48qg")
+theme_override_font_sizes/font_size = 30
+text = "• you
+• weiner
+"
 
 [node name="dislik" type="Label" parent="paper/VBoxContainer" unique_id=531602477]
 layout_mode = 2
@@ -179,13 +174,14 @@ theme_override_font_sizes/font_size = 30
 text = "Dislikes:"
 
 [node name="dislikes" type="Label" parent="paper/VBoxContainer" unique_id=419393013]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("8_w48qg")
 theme_override_font_sizes/font_size = 30
-text = "not you
-hamborgar
-fridge"
+text = "• not you
+• brugr
+"
 
 [node name="DialogueBox" type="Panel" parent="." unique_id=936188929]
 layout_mode = 1
@@ -205,8 +201,129 @@ data = ExtResource("5_kek77")
 custom_effects = Array[RichTextEffect]([SubResource("RichTextEffect_4c57u"), SubResource("RichTextEffect_efxa6"), SubResource("RichTextEffect_dg77c")])
 metadata/_custom_type_script = "uid://by8fmhpldj46a"
 
+[node name="settings" parent="." unique_id=781342177 instance=ExtResource("1_ig7tw")]
+visible = false
+layout_mode = 1
+
+[node name="choices" type="HBoxContainer" parent="." unique_id=570848785]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -264.5
+offset_top = -108.0
+offset_right = 264.5
+offset_bottom = -44.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 30
+
+[node name="choice1" type="Button" parent="choices" unique_id=430930854]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("10_4c57u")
+theme_override_font_sizes/font_size = 40
+text = "sample"
+
+[node name="choice2" type="Button" parent="choices" unique_id=33800610]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("10_4c57u")
+theme_override_font_sizes/font_size = 40
+text = "sample"
+
+[node name="choice3" type="Button" parent="choices" unique_id=1370233181]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("10_4c57u")
+theme_override_font_sizes/font_size = 40
+text = "sample"
+
+[node name="result" type="ColorRect" parent="." unique_id=1032326537]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -137.5
+offset_top = -175.0
+offset_right = 137.5
+offset_bottom = 225.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="result" unique_id=553592420]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -100.5
+offset_top = 20.0
+offset_right = 100.5
+offset_bottom = 292.0
+grow_horizontal = 2
+theme_override_constants/separation = 10
+
+[node name="fren" type="Label" parent="result/VBoxContainer" unique_id=405758517]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("8_w48qg")
+theme_override_font_sizes/font_size = 30
+text = "Friends Made:"
+horizontal_alignment = 1
+
+[node name="fren2" type="Label" parent="result/VBoxContainer" unique_id=313738800]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("8_w48qg")
+theme_override_font_sizes/font_size = 30
+text = "0"
+horizontal_alignment = 1
+
+[node name="date" type="Label" parent="result/VBoxContainer" unique_id=577589068]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("8_w48qg")
+theme_override_font_sizes/font_size = 30
+text = "Potential Dates:"
+horizontal_alignment = 1
+
+[node name="date2" type="Label" parent="result/VBoxContainer" unique_id=2115816479]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("8_w48qg")
+theme_override_font_sizes/font_size = 30
+text = "0"
+horizontal_alignment = 1
+
+[node name="hate" type="Label" parent="result/VBoxContainer" unique_id=18370028]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("8_w48qg")
+theme_override_font_sizes/font_size = 30
+text = "Haters Born:"
+horizontal_alignment = 1
+
+[node name="hate2" type="Label" parent="result/VBoxContainer" unique_id=1433912023]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("8_w48qg")
+theme_override_font_sizes/font_size = 30
+text = "0"
+horizontal_alignment = 1
+
 [connection signal="pressed" from="starting/date" to="." method="_on_date_pressed"]
 [connection signal="pressed" from="starting/store" to="." method="_on_store_pressed"]
 [connection signal="pressed" from="setnquit/setbutton" to="." method="_on_setbutton_pressed"]
 [connection signal="pressed" from="setnquit/quitting" to="." method="_on_quitting_pressed"]
 [connection signal="dialogue_signal" from="DialogueBox" to="." method="_on_dialogue_box_dialogue_signal"]
+[connection signal="pressed" from="choices/choice1" to="." method="_on_choice_1_pressed"]
+[connection signal="pressed" from="choices/choice2" to="." method="_on_choice_2_pressed"]
+[connection signal="pressed" from="choices/choice3" to="." method="_on_choice_3_pressed"]

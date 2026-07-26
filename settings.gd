@@ -36,7 +36,7 @@ func _on_sfx_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(sfx,linear_to_db(value))
 
 
-func _on_fullscreen_toggled(toggled_on: bool) -> void:
+func _on_fullscreen_toggled() -> void:
 	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN if is_window else DisplayServer.WINDOW_MODE_WINDOWED)
 
 func _on_exit_pressed() -> void:

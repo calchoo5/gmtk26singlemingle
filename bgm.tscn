@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://cq5absc0j6h36"]
 
 [ext_resource type="AudioStream" uid="uid://pcl4alrhgewv" path="res://assets/audio/andriih-bossa-nova-jazz-music-572268.mp3" id="1_l7bcd"]
+[ext_resource type="Script" uid="uid://df0qik4tdu8b7" path="res://bgm.gd" id="2_8vt1b"]
 
 [node name="BGM" type="AudioStreamPlayer" unique_id=153516301]
 process_mode = 3
 stream = ExtResource("1_l7bcd")
 autoplay = true
 bus = &"BGM"
+script = ExtResource("2_8vt1b")

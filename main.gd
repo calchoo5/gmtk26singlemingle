@@ -4,7 +4,7 @@ extends Control
 @onready var chars = load("res://dialogues/characters.tres")
 @onready var room = load("res://assets/images/Bedroom_Day.png")
 @onready var cafe = load("res://assets/images/Cafeteria_Day.png")
-@onready var cafebgm = load("res://assets/audio/atlasaudio-energetic-energetic-music-507828.mp3")
+@onready var store = load("res://assets/images/Backstreet_Summer_Day.png")
 
 
 
@@ -26,9 +26,59 @@ extends Control
 	'camera': load("res://assets/images/ppl/thehilaryclark-isolated-1182220_1920.png"),
 	'doc': load("res://assets/images/ppl/thehilaryclark-isolated-1188036_1920.png"),
 	'thinker': load("res://assets/images/ppl/thehilaryclark-isolated-1197345_1920.png"),
-	'sad': load("res://assets/images/ppl/thehilaryclark-man-2285605_1920.png"),
+	'sad': load("res://assets/images/ppl/thehilaryclark-man-2285605_1920.png")
 }
 
+@onready var likes = {
+	"irish": ["alcohol","woodworking"],
+	"martial":["fighting","sticks"],
+	"anon": ["masks","dancing"],
+	'horse': ["hay","carrots"],
+	"wbook": ["books","yaoi"],
+	'jester': ["flutes","poker"],
+	'posed': ["posing","standing"],
+	'mbook': ["matcha","Clairo"],
+	'omisido': ["smiling","work"],
+	'thumbs': ["thumbs","approving"],
+	'stare': ["staring","stalking"],
+	'girl': ["beach","desserts"],
+	'suit': ["aurafarming","flappy bird"],
+	'asian': ["eating","exploring"],
+	'camera': ["paparazzi","ginger"],
+	'doc': ["air fryers","being smug"],
+	'thinker': ["pondering","wondering"],
+	'sad': ["nothing","smoking"]
+}
+@onready var dislikes = {
+	"irish": ["england","rain"],
+	"martial":["kids","losing"],
+	"anon": ["government","dogs"],
+	'horse': ["benadryl","bars"],
+	"wbook": ["larping","men"],
+	'jester': ["execution","disease"],
+	'posed': ["sitting","gold"],
+	'mbook': ["periods","men"],
+	'omisido': ["not working","frowning"],
+	'thumbs': ["thumbs down","disapproving"],
+	'stare': ["blinking","sleeping"],
+	'girl': ["rain","spiders"],
+	'suit': ["sweating","work"],
+	'asian': ["casinos","fried foods"],
+	'camera': ["phones","basil"],
+	'doc': ["patients","nurses"],
+	'thinker': ["knowing","understanding"],
+	'sad': ["everything","lotion"]
+}
+
+var gonow = false
+var once = true
+var starter
+var random_pool: Array = []
+var main_array: Array = []
+var counter = 0
+var correct = 0
+var friends = 0
+var dates = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -45,7 +95,14 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if Global.die && once:
+		once = false
+		$dater.visible = false
+		$choices.visible = false
+		$paper.visible = false
+		Bgm.relax()
+		
+		#dgb.start("end")
 
 
 func _on_setbutton_pressed() -> void:
@@ -55,8 +112,7 @@ func _on_setbutton_pressed() -> void:
 func _on_date_pressed() -> void:
 	$BG.texture = cafe
 	$starting.visible = false
-	Bgm.stream = cafebgm
-	Bgm.play()
+	Bgm.gotime()
 	if Global.firstplay:
 		dgb.start('datetest')
 		Global.firstplay = false
@@ -68,15 +124,96 @@ func _on_date_pressed() -> void:
 func _on_store_pressed() -> void:
 	if Global.firstplay:
 		dgb.start("firstplay")
+		return
+	$BG.texture = store
+	$starting.visible = false
+	Bgm.shop()
 
 
 func _on_dialogue_box_dialogue_signal(value: String) -> void:
 	if value == "finito":
 		$starting.visible = true
 	if value == "datego":
-		$dater.texture = suitors[suitors.keys()[randi()%suitors.size()]]
+		nextdate()
+	if value == "finalend":
+		$BG.texture = room
+		$starting.visible = true
 
+func nextdate() -> void:
+	counter = 0
+	correct = 0
+	starter = suitors.keys()[randi()%suitors.size()]
+	$dater.texture = suitors[starter]
+	$dater.visible = true
+	$timer.visible = true
+	$timer.timerstart = true
+	$paper.visible = true
+	$choices.visible = true
+	main_array = [likes[starter][0],likes[starter][1],dislikes[starter][0],dislikes[starter][1]]
+	%likes.text = "• %s\n• %s\n" % [main_array[0],main_array[1]]
+	%dislikes.text = "• %s\n• %s\n" % [main_array[2],main_array[3]]
+	randobutton()
 
 func _on_quitting_pressed() -> void:
-	$dater.texture = suitors[suitors.keys()[randi()%suitors.size()]]
-	#get_tree().change_scene_to_file("res://menu.tscn")
+	#nextdate()
+	#$dater.texture = suitors[suitors.keys()[randi()%suitors.size()]]
+	get_tree().change_scene_to_file("res://menu.tscn")
+	
+func get_random_without_repeats():
+	# If the pool is empty, refill it from the master list and shuffle
+	if random_pool.is_empty():
+		random_pool = main_array.duplicate()
+		random_pool.shuffle()
+	# pop_back() removes and returns the last element efficiently
+	return random_pool.pop_back()
+
+
+func _on_choice_1_pressed() -> void:
+	if $choices/choice1.text in likes[starter]:
+		Sfx.right()
+		counter += 1
+		correct += 1
+	else:
+		Sfx.wrong()
+		counter += 1
+	randobutton()
+	checktwice()
+
+
+func _on_choice_2_pressed() -> void:
+	if $choices/choice2.text in likes[starter]:
+		Sfx.right()
+		counter += 1
+		correct += 1
+	else:
+		Sfx.wrong()
+		counter += 1
+	randobutton()
+	checktwice()
+
+
+func _on_choice_3_pressed() -> void:
+	if $choices/choice3.text in likes[starter]:
+		Sfx.right()
+		counter += 1
+		correct += 1
+	else:
+		Sfx.wrong()
+		counter += 1
+	randobutton()
+	checktwice()
+	
+func checktwice():
+	if counter >= 2:
+		if correct == 1:
+			friends += 1
+		else:
+			dates += 1
+		nextdate()
+		return
+
+func randobutton():
+	$choices/choice1.text = get_random_without_repeats()
+	$choices/choice2.text = get_random_without_repeats()
+	$choices/choice3.text = get_random_without_repeats()
+	
