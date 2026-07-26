@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://cq5absc0j6h36"]
 
-[ext_resource type="AudioStream" uid="uid://difp6wwvnd7rv" path="res://assets/audio/Radio Martini.mp3" id="1_l7bcd"]
+[ext_resource type="AudioStream" uid="uid://pcl4alrhgewv" path="res://assets/audio/andriih-bossa-nova-jazz-music-572268.mp3" id="1_l7bcd"]
 
 [node name="BGM" type="AudioStreamPlayer" unique_id=153516301]
 stream = ExtResource("1_l7bcd")
 autoplay = true
+bus = &"BGM"
