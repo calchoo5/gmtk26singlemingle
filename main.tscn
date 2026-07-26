@@ -2,18 +2,20 @@
 
 [ext_resource type="Script" uid="uid://dnto46c4mj73t" path="res://main.gd" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://c0o1r0nlk1hxo" path="res://settings.tscn" id="1_ig7tw"]
+[ext_resource type="Texture2D" uid="uid://befmwbb52kato" path="res://assets/images/Backstreet_Summer_Day.png" id="2_2cqfq"]
 [ext_resource type="Script" uid="uid://by8fmhpldj46a" path="res://addons/dialogue_nodes/objects/DialogueBox.gd" id="3_7mycd"]
 [ext_resource type="Theme" uid="uid://c7sdrp3ltdq24" path="res://addons/dialogue_nodes/themes/pixelart.theme" id="3_272bh"]
 [ext_resource type="Script" uid="uid://m31i3axecagx" path="res://addons/dialogue_nodes/objects/bbcodeWait.gd" id="4_272bh"]
 [ext_resource type="Script" uid="uid://blmdt7v8bd0nl" path="res://addons/dialogue_nodes/objects/bbcodeGhost.gd" id="5_5vw27"]
 [ext_resource type="Resource" uid="uid://u030r7xq4p8a" path="res://dialogues/intro.tres" id="5_kek77"]
 [ext_resource type="Script" uid="uid://bsoctnc26xumr" path="res://addons/dialogue_nodes/objects/bbcodeMatrix.gd" id="6_kek77"]
+[ext_resource type="Texture2D" uid="uid://d04dtq71ref8q" path="res://assets/images/gdfsgfdsfgds.png" id="7_vivmo"]
 [ext_resource type="FontFile" uid="uid://cbtekksunv054" path="res://addons/Font Pack/Gc05002t.ttf" id="8_w48qg"]
-[ext_resource type="Texture2D" uid="uid://c1f3pi7uwddvc" path="res://assets/images/Bedroom_Day.png" id="9_4c57u"]
 [ext_resource type="FontFile" uid="uid://bhtf12vvs2yjq" path="res://addons/dialogue_nodes/themes/Poppins-BoldItalic.ttf" id="10_4c57u"]
 [ext_resource type="Texture2D" uid="uid://yvkct25h5bmn" path="res://assets/images/ppl/omisido-smile-3660166_1920.png" id="11_ycdy4"]
 [ext_resource type="FontFile" uid="uid://bld5u8m31y7kh" path="res://addons/Font Pack/PakenhamBl.ttf" id="12_w48qg"]
 [ext_resource type="Script" uid="uid://bi6g8iopecpdc" path="res://timer.gd" id="13_vivmo"]
+[ext_resource type="FontFile" uid="uid://b7auq3nfwli4x" path="res://addons/Font Pack/Eitai.otf" id="16_yaehf"]
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_4c57u"]
 script = ExtResource("4_272bh")
@@ -40,7 +42,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("9_4c57u")
+texture = ExtResource("2_2cqfq")
 expand_mode = 1
 
 [node name="starting" type="VBoxContainer" parent="." unique_id=102831135]
@@ -97,6 +99,16 @@ theme_override_fonts/font = ExtResource("10_4c57u")
 theme_override_font_sizes/font_size = 20
 text = "Quit"
 
+[node name="mone" type="Label" parent="setnquit" unique_id=1529261291]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.3529412, 0.5019608, 0.15686275, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("10_4c57u")
+theme_override_font_sizes/font_size = 30
+text = "$69"
+horizontal_alignment = 1
+
 [node name="dater" type="TextureRect" parent="." unique_id=1435500090]
 visible = false
 layout_mode = 1
@@ -131,7 +143,17 @@ text = "00:00"
 horizontal_alignment = 1
 script = ExtResource("13_vivmo")
 
+[node name="cashier" type="TextureRect" parent="." unique_id=578998191]
+visible = false
+layout_mode = 0
+offset_left = 95.0
+offset_top = 135.0
+offset_right = 527.0
+offset_bottom = 731.0
+texture = ExtResource("7_vivmo")
+
 [node name="paper" type="ColorRect" parent="." unique_id=732023918]
+visible = false
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -245,7 +267,16 @@ theme_override_fonts/font = ExtResource("10_4c57u")
 theme_override_font_sizes/font_size = 40
 text = "sample"
 
+[node name="choice4" type="Button" parent="choices" unique_id=2084060653]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("10_4c57u")
+theme_override_font_sizes/font_size = 40
+text = "sample"
+
 [node name="result" type="ColorRect" parent="." unique_id=1032326537]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -253,9 +284,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -137.5
-offset_top = -175.0
+offset_top = -244.0
 offset_right = 137.5
-offset_bottom = 225.0
+offset_bottom = 205.99951
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -273,13 +304,14 @@ theme_override_constants/separation = 10
 
 [node name="fren" type="Label" parent="result/VBoxContainer" unique_id=405758517]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.5256746, 0.32305807, 0.16188508, 1)
 theme_override_fonts/font = ExtResource("8_w48qg")
 theme_override_font_sizes/font_size = 30
 text = "Friends Made:"
 horizontal_alignment = 1
 
-[node name="fren2" type="Label" parent="result/VBoxContainer" unique_id=313738800]
+[node name="frenct" type="Label" parent="result/VBoxContainer" unique_id=313738800]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("8_w48qg")
@@ -289,13 +321,14 @@ horizontal_alignment = 1
 
 [node name="date" type="Label" parent="result/VBoxContainer" unique_id=577589068]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.43529412, 0, 0.32941177, 1)
 theme_override_fonts/font = ExtResource("8_w48qg")
 theme_override_font_sizes/font_size = 30
 text = "Potential Dates:"
 horizontal_alignment = 1
 
 [node name="date2" type="Label" parent="result/VBoxContainer" unique_id=2115816479]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("8_w48qg")
@@ -305,19 +338,133 @@ horizontal_alignment = 1
 
 [node name="hate" type="Label" parent="result/VBoxContainer" unique_id=18370028]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.49411765, 0, 0, 1)
 theme_override_fonts/font = ExtResource("8_w48qg")
 theme_override_font_sizes/font_size = 30
 text = "Haters Born:"
 horizontal_alignment = 1
 
 [node name="hate2" type="Label" parent="result/VBoxContainer" unique_id=1433912023]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("8_w48qg")
 theme_override_font_sizes/font_size = 30
 text = "0"
 horizontal_alignment = 1
+
+[node name="Allow" type="Label" parent="result/VBoxContainer" unique_id=1053875791]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(2.7675183e-06, 0.559168, 5.7756904e-07, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("8_w48qg")
+theme_override_font_sizes/font_size = 30
+text = "Allowance Earned:"
+horizontal_alignment = 1
+
+[node name="allow2" type="Label" parent="result/VBoxContainer" unique_id=1078212747]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("8_w48qg")
+theme_override_font_sizes/font_size = 30
+text = "0"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="result/VBoxContainer" unique_id=1668766362]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("8_w48qg")
+theme_override_font_sizes/font_size = 30
+text = "Continue"
+
+[node name="shop" type="VBoxContainer" parent="." unique_id=1059697975]
+visible = false
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -678.0
+offset_top = -166.0
+offset_bottom = 166.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/separation = 15
+
+[node name="soda" type="Button" parent="shop" unique_id=1468193044]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("16_yaehf")
+theme_override_font_sizes/font_size = 25
+text = "$5 - Dr. Prebis"
+
+[node name="Label" type="Label" parent="shop" unique_id=762192939]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("16_yaehf")
+theme_override_font_sizes/font_size = 25
+text = "The only doctor I'd trust.
+- Tastes yummy."
+
+[node name="textbook\\" type="Button" parent="shop" unique_id=1061271201]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("16_yaehf")
+theme_override_font_sizes/font_size = 25
+text = "$20 - Friends4Dummies"
+
+[node name="Label3" type="Label" parent="shop" unique_id=624592688]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("16_yaehf")
+theme_override_font_sizes/font_size = 25
+text = "a textbook about making friends. duh.
+-increases allowance from making friends"
+
+[node name="winb" type="Button" parent="shop" unique_id=190186426]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("16_yaehf")
+theme_override_font_sizes/font_size = 25
+text = "$169 - Pay your bail"
+
+[node name="Label2" type="Label" parent="shop" unique_id=1532034136]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("16_yaehf")
+theme_override_font_sizes/font_size = 25
+text = "Surely your mom will take a bail payment.
+- pay your mom to stop signing you up"
+
+[node name="gohome" type="Button" parent="." unique_id=713473026]
+visible = false
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -152.0
+offset_top = -73.0
+offset_right = -50.0
+offset_bottom = -37.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("10_4c57u")
+theme_override_font_sizes/font_size = 30
+text = "Go Home"
 
 [connection signal="pressed" from="starting/date" to="." method="_on_date_pressed"]
 [connection signal="pressed" from="starting/store" to="." method="_on_store_pressed"]
@@ -327,3 +474,9 @@ horizontal_alignment = 1
 [connection signal="pressed" from="choices/choice1" to="." method="_on_choice_1_pressed"]
 [connection signal="pressed" from="choices/choice2" to="." method="_on_choice_2_pressed"]
 [connection signal="pressed" from="choices/choice3" to="." method="_on_choice_3_pressed"]
+[connection signal="pressed" from="choices/choice4" to="." method="_on_choice_4_pressed"]
+[connection signal="pressed" from="result/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="shop/soda" to="." method="_on_soda_pressed"]
+[connection signal="pressed" from="shop/textbook\\" to="." method="_on_textbook_pressed"]
+[connection signal="pressed" from="shop/winb" to="." method="_on_winb_pressed"]
+[connection signal="pressed" from="gohome" to="." method="_on_gohome_pressed"]

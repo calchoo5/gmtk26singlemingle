@@ -1,10 +1,11 @@
 [gd_scene format=3 uid="uid://bhskwk7yifkx1"]
 
 [ext_resource type="Script" uid="uid://8152jop8t5dt" path="res://menu.gd" id="1_4hy44"]
-[ext_resource type="Texture2D" uid="uid://dyql8fdee8xtf" path="res://i_do_not_know_something_i_do_not_want.png" id="1_mae5d"]
 [ext_resource type="FontFile" uid="uid://bwrnm8umr3ows" path="res://addons/Font Pack/EducationalGothic.otf" id="2_4hy44"]
+[ext_resource type="Texture2D" uid="uid://cxf550i88udc0" path="res://assets/images/aroaceman.png" id="2_l48gv"]
 [ext_resource type="PackedScene" uid="uid://c0o1r0nlk1hxo" path="res://settings.tscn" id="2_ytr4m"]
 [ext_resource type="FontFile" uid="uid://qpcno4x8o1nj" path="res://addons/Font Pack/Philosopher.ttf" id="3_ytr4m"]
+[ext_resource type="Texture2D" uid="uid://ddarngpkqny5l" path="res://assets/images/Aroace_flag.svg.png" id="4_l48gv"]
 
 [node name="menu" type="Control" unique_id=1880500747]
 layout_mode = 3
@@ -22,7 +23,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_mae5d")
+texture = ExtResource("2_l48gv")
 expand_mode = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1198367116]
@@ -76,6 +77,18 @@ theme_override_font_sizes/font_size = 40
 text = "Quit"
 flat = true
 
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1673089896]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -642.0
+offset_right = 642.0
+offset_bottom = 200.0
+grow_horizontal = 2
+texture = ExtResource("4_l48gv")
+
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=161776720]
 layout_mode = 1
 anchors_preset = 5
@@ -91,7 +104,7 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.38431373, 0.68235296, 0.8627451, 1)
 theme_override_constants/outline_size = 15
 theme_override_fonts/font = ExtResource("3_ytr4m")
-theme_override_font_sizes/font_size = 100
+theme_override_font_sizes/font_size = 90
 text = "Single, Forced to Mingle"
 
 [node name="settings" parent="." unique_id=781342177 instance=ExtResource("2_ytr4m")]

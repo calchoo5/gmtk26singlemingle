@@ -79,19 +79,19 @@ var counter = 0
 var correct = 0
 var friends = 0
 var dates = 0
+var enemies = 0
+var allowance = 0
+var prevdate
+var smart = 1
 
-# Called when the node enters the scene tree for the first time.
+
 func _ready() -> void:
-	# 1. Clear any broken editor-canned data safely
 	dgb.characters.clear()
-	
-	# 2. Append the elements one by one to preserve the plugin's exact internal type
 	for character in chars.characters:
 		dgb.characters.append(character)
-	
-	# 3. Print to confirm the list is populated and valid
-	print("Loaded Characters: ", dgb.characters)
 	dgb.start('intro')
+	$BG.texture = room
+	%mone.text = "$" + str(allowance)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -101,8 +101,15 @@ func _process(delta: float) -> void:
 		$choices.visible = false
 		$paper.visible = false
 		Bgm.relax()
-		
+		$result.visible = true
+		%frenct.text = str(friends)
+		%date2.text = str(dates)
+		%hate2.text = str(enemies)
+		allowance = friends*smart + (dates*2) - enemies
+		%allow2.text = "$" +str(allowance)
+		%mone.text = "$" + str(allowance)
 		#dgb.start("end")
+	%mone.text = "$" + str(allowance)
 
 
 func _on_setbutton_pressed() -> void:
@@ -115,19 +122,22 @@ func _on_date_pressed() -> void:
 	Bgm.gotime()
 	if Global.firstplay:
 		dgb.start('datetest')
-		Global.firstplay = false
 	else:
-		dgb.start('date')
+		dgb.start('datestart')
 	
 
 
 func _on_store_pressed() -> void:
-	if Global.firstplay:
-		dgb.start("firstplay")
-		return
+	#if Global.firstplay:
+		#dgb.start("firstplay")
+		#return
 	$BG.texture = store
 	$starting.visible = false
 	Bgm.shop()
+	dgb.start("store")
+	$cashier.visible = true
+	$shop.visible = true
+	
 
 
 func _on_dialogue_box_dialogue_signal(value: String) -> void:
@@ -138,11 +148,19 @@ func _on_dialogue_box_dialogue_signal(value: String) -> void:
 	if value == "finalend":
 		$BG.texture = room
 		$starting.visible = true
+	if value == "cashierend":
+		$gohome.visible = true
+	if value == "smart":
+		smart = 1.5
 
 func nextdate() -> void:
+	main_array.clear()
 	counter = 0
 	correct = 0
 	starter = suitors.keys()[randi()%suitors.size()]
+	while starter == prevdate:
+		starter = suitors.keys()[randi()%suitors.size()]
+	prevdate = starter
 	$dater.texture = suitors[starter]
 	$dater.visible = true
 	$timer.visible = true
@@ -176,7 +194,6 @@ func _on_choice_1_pressed() -> void:
 	else:
 		Sfx.wrong()
 		counter += 1
-	randobutton()
 	checktwice()
 
 
@@ -188,7 +205,6 @@ func _on_choice_2_pressed() -> void:
 	else:
 		Sfx.wrong()
 		counter += 1
-	randobutton()
 	checktwice()
 
 
@@ -200,20 +216,78 @@ func _on_choice_3_pressed() -> void:
 	else:
 		Sfx.wrong()
 		counter += 1
-	randobutton()
 	checktwice()
+
+func _on_choice_4_pressed() -> void:
+	if $choices/choice4.text in likes[starter]:
+		Sfx.right()
+		counter += 1
+		correct += 1
+	else:
+		Sfx.wrong()
+		counter += 1
+	checktwice()
+
 	
 func checktwice():
 	if counter >= 2:
 		if correct == 1:
 			friends += 1
-		else:
+		elif correct == 2:
 			dates += 1
+		else:
+			enemies += 1
 		nextdate()
+		randobutton()
 		return
+	else:
+		randobutton()
 
 func randobutton():
 	$choices/choice1.text = get_random_without_repeats()
 	$choices/choice2.text = get_random_without_repeats()
 	$choices/choice3.text = get_random_without_repeats()
+	$choices/choice4.text = get_random_without_repeats()
 	
+
+func _on_button_pressed() -> void:
+	if Global.firstplay:
+		dgb.start("end")
+		Global.firstplay = false
+	else:
+		dgb.start("ended")
+	$result.visible = false
+	$timer.visible = false
+
+
+func _on_gohome_pressed() -> void:
+	$cashier.visible = false
+	$shop.visible = false
+	$gohome.visible = false
+	$starting.visible = true
+	$BG.texture = room
+	Bgm.relax()
+
+
+func _on_soda_pressed() -> void:
+	if allowance >=5:
+		allowance -= 5
+		dgb.start("prebis")
+	else:
+		dgb.start("broke")
+
+
+func _on_textbook_pressed() -> void:
+	if allowance >=20:
+		allowance -= 20
+		dgb.start("textbook")
+	else:
+		dgb.start("broke")
+
+
+func _on_winb_pressed() -> void:
+	if allowance >=169:
+		allowance -= 169
+		dgb.start("win")
+	else:
+		dgb.start("broke")
